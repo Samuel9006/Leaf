@@ -44,11 +44,11 @@ public class UsuariosEntity implements Serializable {
 	@Column(name = "dssegundo_nombre", nullable = true)
 	private String dssegundoNombre;
 
-	@Column(nullable = true)
+	@Column(nullable = true,unique=true)
 	private String dscorreo;
 
 	@NotEmpty(message = "El campo 'Usuario' es requerido")
-	@Column(nullable = false)
+	@Column(nullable = false,unique=true)
 	private String dsusuario;
 
 	@NotEmpty(message = "El campo 'Clave' es requerido")
@@ -59,6 +59,10 @@ public class UsuariosEntity implements Serializable {
 	@JsonIgnore(true)
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<ParticipantesEntity> lstParticipantes;
+
+	@JsonIgnore(true)
+	@OneToMany(mappedBy = "usuarioprof", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<ClasesEntity> lstClasesProfesor;
 
 	/**
 	 * @return the nmdocumento
@@ -200,5 +204,18 @@ public class UsuariosEntity implements Serializable {
 		this.lstParticipantes = lstParticipantes;
 	}
 
+	/**
+	 * @return the lstClasesProfesor
+	 */
+	public List<ClasesEntity> getLstClasesProfesor() {
+		return lstClasesProfesor;
+	}
+
+	/**
+	 * @param lstClasesProfesor the lstClasesProfesor to set
+	 */
+	public void setLstClasesProfesor(List<ClasesEntity> lstClasesProfesor) {
+		this.lstClasesProfesor = lstClasesProfesor;
+	}
 
 }

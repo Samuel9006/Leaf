@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"dstipoDocumento\":\"CC\",\n\t\"nmdocumento\":\"1013616358\",\n\t\"dsprimerApellido\":\"Panqueva\",\n\t\"dsprimerNombre\":\"Diego\",\n\t\"dssegundoApellido\":null,\n\t\"dssegundoNombre\":null,\n\t\"dscorreo\":\"daerb9011@gmail.com\",\n\t\"dsusuario\":\"dpanqueva\",\n\t\"dsclave\":\"1234\"\n\t\n}",
+					"raw": "{\r\n\t\"dstipoDocumento\":\"CC\",\r\n\t\"nmdocumento\":\"1013616358\",\r\n\t\"dsprimerApellido\":\"Panqueva\",\r\n\t\"dsprimerNombre\":\"Diego\",\r\n\t\"dssegundoApellido\":null,\r\n\t\"dssegundoNombre\":null,\r\n\t\"dscorreo\":\"daerb9011@gmail.com\",\r\n\t\"dsusuario\":\"dpanqueva\",\r\n\t\"dsclave\":\"1234\"\r\n\t\r\n}\r\n\r\n{\r\n    \"nmdocumento\": 1013616359,\r\n    \"dstipoDocumento\": \"CC\",\r\n    \"dsprimerApellido\": \"Panqueva\",\r\n    \"dssegundoApellido\": \"Benitez\",\r\n    \"dsprimerNombre\": \"Diego\",\r\n    \"dssegundoNombre\": \"Alejandro\",\r\n    \"dscorreo\": \"daerb90114@gmail.com\",\r\n    \"dsusuario\": \"dpanqueva4\",\r\n    \"dsclave\": \"1234\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"dsnombreClase\":\"Desarrollo java\",\n\t\"nmTiempoClase\":40,\n\t\"dsclase\":\"La clase de hoy veremos POO\"\n}",
+					"raw": "{\n\t\"dsnombreClase\":\"Desarrollo java\",\n\t\"nmTiempoClase\":40,\n\t\"dsclase\":\"La clase de hoy veremos POO\",\n\t\"nmlimiteEstudiantes\":30,\n\t\"usuarioprof\":{\n\t\t\"dstipoDocumento\":\"CC\",\n\t\t\"nmdocumento\":\"1013616358\",\n\t\t\"dsprimerApellido\":\"Panqueva\",\n\t\t\"dsprimerNombre\":\"Diego\",\n\t\t\"dssegundoApellido\":null,\n\t\t\"dssegundoNombre\":null,\n\t\t\"dscorreo\":\"daerb9011@gmail.com\",\n\t\t\"dsusuario\":\"dpanqueva\"\n\t}\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,6 +60,72 @@
 						"LEAF",
 						"V1",
 						"clase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST inscriptionClassRoom",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-nmdocumento",
+						"value": "1013616359",
+						"type": "text"
+					},
+					{
+						"key": "x-cdclase",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/LEAF/V1/participar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"LEAF",
+						"V1",
+						"participar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET findCategoryByWord",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/LEAF/V1/listas/categoria/COCINA2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"LEAF",
+						"V1",
+						"listas",
+						"categoria",
+						"COCINA2"
 					]
 				}
 			},

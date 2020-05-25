@@ -7,4 +7,6 @@ import com.globhack.leaf.model.entity.UsuariosEntity;
 public interface IUsuariosDao extends CrudRepository<UsuariosEntity,Integer>{
 
 	
+	public UsuariosEntity findByNmdocumento(Integer nmdocumento);
+	
 }

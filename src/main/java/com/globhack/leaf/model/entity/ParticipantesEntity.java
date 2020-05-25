@@ -10,14 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "participantes")
-@IdClass(ParticipanteesId.class)
+@IdClass(ParticipantesId.class)
 public class ParticipantesEntity implements Serializable {
 
 	/**
@@ -32,7 +31,7 @@ public class ParticipantesEntity implements Serializable {
 	private Integer cdclase;
 
 	@Basic(optional = false)
-	@Column(name = "feregistro", insertable = false, updatable = false, columnDefinition = "timestamp")
+	@Column(name = "feregistro", updatable = false, columnDefinition = "timestamp")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date feregistro;
 
@@ -43,11 +42,6 @@ public class ParticipantesEntity implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "cdclase", referencedColumnName = "cdclase", insertable = false, updatable = false)
 	private ClasesEntity clase;
-
-	@PrePersist
-	public void prePersist() {
-		feregistro = new Date();
-	}
 
 	/**
 	 * @return the nmdocumento

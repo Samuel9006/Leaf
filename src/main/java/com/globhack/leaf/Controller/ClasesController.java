@@ -13,24 +13,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.globhack.leaf.model.entity.ClasesEntity;
+import com.globhack.leaf.model.entity.UsuariosEntity;
 import com.globhack.leaf.model.service.IClasesService;
-
-
+import com.globhack.leaf.model.service.IUsuariosService;
 
 @RestController
 @RequestMapping("/LEAF/V1")
 public class ClasesController {
-	
+
 	@Autowired
 	private IClasesService claseService;
 
+	@Autowired
+	private IUsuariosService usuarioService;
+
 	@PostMapping("/clase")
-	public ResponseEntity<?> createClassRoom(@RequestBody ClasesEntity clase){
+	public ResponseEntity<?> createClassRoom(@RequestBody ClasesEntity clase) {
 		Map<String, Object> response = new HashMap<>();
 		ClasesEntity claseCreada = null;
 		try {
-			claseCreada = claseService.createClassRoom(clase);
-		}  catch (DataAccessException e) {
+			UsuariosEntity profesor = usuarioService.teacherClass(clase.getUsuarioprof().getNmdocumento());
+			if (profesor != null) {
+				claseCreada = claseService.createClassRoom(clase);
+			} else {
+				response.put("mensaje", "Error al insertar en la base de datos");
+				response.put("error", "El profesor no existe en la base de datos");
+				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+			}
+		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al insertar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);

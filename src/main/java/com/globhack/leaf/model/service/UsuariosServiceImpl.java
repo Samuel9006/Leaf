@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import com.globhack.leaf.model.dao.IUsuariosDao;
 import com.globhack.leaf.model.entity.UsuariosEntity;
 
-
-
 @Service
 public class UsuariosServiceImpl implements IUsuariosService {
 
@@ -16,7 +14,12 @@ public class UsuariosServiceImpl implements IUsuariosService {
 
 	@Override
 	public UsuariosEntity createUser(UsuariosEntity usuario) {
-		UsuariosEntity usuarioNuevo = usuarioDao.save(usuario);
-		return usuarioNuevo;
+		return usuarioDao.save(usuario);
 	}
+
+	@Override
+	public UsuariosEntity teacherClass(Integer nmdocumento) {
+		return usuarioDao.findByNmdocumento(nmdocumento);
+	}
+
 }

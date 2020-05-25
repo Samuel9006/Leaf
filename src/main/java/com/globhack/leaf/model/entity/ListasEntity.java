@@ -2,12 +2,12 @@ package com.globhack.leaf.model.entity;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -21,11 +21,12 @@ public class ListasEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @SequenceGenerator(name="listas_seq",
+   /* @SequenceGenerator(name="listas_seq",
                        sequenceName="listas_seq",
                        allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-                    generator="listas_seq")
+                    generator="listas_seq")*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cdlista", updatable=false)
     private Integer cdlista;
 	

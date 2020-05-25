@@ -5,4 +5,6 @@ import com.globhack.leaf.model.entity.UsuariosEntity;
 public interface IUsuariosService {
 
 	public UsuariosEntity createUser(UsuariosEntity usuario); 
+	
+	public UsuariosEntity teacherClass(Integer nmdocumento);
 }

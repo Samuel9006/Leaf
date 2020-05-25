@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 
-public class ParticipanteesId implements Serializable {
+public class ParticipantesId implements Serializable {
 
 	/**
 	 * 
