@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "bb9dd6a0-ee27-495f-bbb0-cc2764ad623e",
+		"name": "leaf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST CreateUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"dstipoDocumento\":\"CC\",\n\t\"nmdocumento\":\"1013616358\",\n\t\"dsprimerApellido\":\"Panqueva\",\n\t\"dsprimerNombre\":\"Diego\",\n\t\"dssegundoApellido\":null,\n\t\"dssegundoNombre\":null,\n\t\"dscorreo\":\"daerb9011@gmail.com\",\n\t\"dsusuario\":\"dpanqueva\",\n\t\"dsclave\":\"1234\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/LEAF/V1/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"LEAF",
+						"V1",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST CreateClassRoom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"dsnombreClase\":\"Desarrollo java\",\n\t\"nmTiempoClase\":40,\n\t\"dsclase\":\"La clase de hoy veremos POO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/LEAF/V1/clase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"LEAF",
+						"V1",
+						"clase"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
